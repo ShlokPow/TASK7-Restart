@@ -1,10 +1,6 @@
 import copy
 from collections import defaultdict
 
-# -------------------------
-# Term and Expression Classes
-# -------------------------
-
 class Expr:
     """Base class for all expressions (Variable, Constant, Function, Predicate)."""
     pass

@@ -1,0 +1,29 @@
+Query: grandparent(abe, bart)
+YES
+
+Query: ancestor(x, bart)
+x = homer
+x = mona
+x = abe
+
+Conjunctive Query: [father(abe, homer), parent(homer, bart)]
+Conjunction holds under substitution: {_x73: homer, _y73: bart}
+
+--- Failure / False Test Cases ---
+Query: grandparent(bart, abe)  # Should be false
+NO (as expected)
+
+Query: parent(x, lisa)  # 'lisa' not in KB
+NO ANSWERS (as expected)
+
+Conjunctive Query: [father(abe, bart), mother(homer, bart)]  # second is false
+CONJUNCTION FAILED (as expected)
+
+Query: father(abe)  # Wrong arity, should fail gracefully
+NO (as expected for wrong arity)
+
+Query: ancestor(bart, abe)  # No backward chain
+NO (as expected)
+
+Query with function: related(add(one, one), two)  # No clauses defined for 'related'
+NO (as expected for undefined predicate)
